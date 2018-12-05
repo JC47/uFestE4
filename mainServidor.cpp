@@ -40,10 +40,16 @@ int main(int argc, char const *argv[])
 		respuesta.n = prueba->n;
 
 		
+		cout << prueba->arguments << endl;
+		cout << prueba->n << endl;
+
+		/*
 		if(prueba->requestId==requestIdPasado){
 			cout<<"El operation id es: "<<prueba->requestId<<endl;
-			nbd+=(*(int *) prueba->arguments);
-			int n_parrafo =(*(int *) prueba->arguments);
+			//nbd+=(*(int *) prueba->arguments);
+			char * p_aux = (*(char *) prueba->arguments);
+			int n_parrafo =(*(int *) prueba->n);
+			cout << p_aux << endl;
 			cout << n_parrafo << endl;
 			string s=to_string(nbd);
 			cout<<"modifico el saldo a --------------- "<<nbd<<" voy a enviar :  "<<s<<endl;
@@ -65,7 +71,7 @@ int main(int argc, char const *argv[])
 			cout<<"El operaion id es: "<<prueba->requestId<<endl;
 				memcpy(respuesta.arguments,(char*)(&error),sizeof(error));
 				resp.sendReply((char*) &respuesta, (unsigned char *)prueba->IP,prueba->puerto, sizeof(respuesta));
-		}
+		}*/
 
 	}
 	
