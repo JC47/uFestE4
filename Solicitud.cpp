@@ -12,7 +12,7 @@ Solicitud::Solicitud(){
 	sockt=new SocketDatagrama(7777);
 }
 
-char* Solicitud::doOperation(unsigned char *IP, int puerto, int operationId, char* argumentos){
+char* Solicitud::doOperation(unsigned char *IP, int puerto, char* argumentos){
 	PaqueteDatagrama packet(argumentos,sizeof(mensaje),IP,puerto);	
 	cout<<"Longitud del paquete: "<<packet.obtieneLongitud()<<endl;
 	cout<<"Bytes enviados: "<<endl;

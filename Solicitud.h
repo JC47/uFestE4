@@ -10,7 +10,7 @@ class Solicitud
 {
 public:
 	Solicitud();
-	char * doOperation( unsigned char *IP, int puerto, int operationId, char* argumentos);
+	char * doOperation( unsigned char *IP, int puerto, char* argumentos);
 private:
 	SocketDatagrama *sockt;
 };

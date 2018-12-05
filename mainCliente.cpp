@@ -24,20 +24,18 @@ int main(int argc, char const *argv[])
 	int q=1;
 	char *resultado=(char*)malloc(sizeof(TAM_MAX_DATA));
 	while(entrada>0){
-		prueba.messageType=q;
 		prueba.requestId=entrada;
 		memcpy(prueba.IP,(char *)ip.c_str(),16);
 		prueba.puerto=7777; //MI PUERTO
-		prueba.operationId=2 ;
 		memcpy(prueba.arguments,(char*)(&n),sizeof(int));
 
 		
 
 		mensaje *respuesta=(mensaje*)malloc(sizeof(mensaje));
-		respuesta=((mensaje*)(cliente.doOperation((unsigned char *)ip2.c_str(),7201,prueba.operationId,(char *)&prueba))); //PUERTO DEL SERVIDOR
-		cout<<"--------------------------"<<prueba.messageType<<endl;
+		respuesta=((mensaje*)(cliente.doOperation((unsigned char *)ip2.c_str(),7201,(char *)&prueba))); //PUERTO DEL SERVIDOR
+		cout<<"--------------------------"<<prueba.requestId<<endl;
 		r=(*(int*)respuesta->arguments);
-		t=(respuesta->messageType);
+		t=(respuesta->requestId);
 		if(t!=q){
 			cout<<"Me ha llegado la respuesta  de "<<t<<" pero yo quiero la respuesta de "<<q<<endl;
 		}
