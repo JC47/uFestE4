@@ -15,6 +15,15 @@ int main(int argc, char const *argv[])
 	std::string ip("10.100.70.115"); //mi IP
 	std::string ip2("10.100.74.112"); //IP DEL SERVIDOR
 	
+	struct mensajeLocal{
+		int n;
+		char *párrafo;
+	};
+
+	char* p = "anita lava la tina";
+
+	mensajeLocal* prueba2 = (mensajeLocal*) malloc(sizeof(mensajeLocal));
+	prueba2->párrafo = p;
 
 	mensaje prueba;
 	Solicitud cliente;
@@ -27,7 +36,7 @@ int main(int argc, char const *argv[])
 		prueba.requestId=entrada;
 		memcpy(prueba.IP,(char *)ip.c_str(),16);
 		prueba.puerto=7777; //MI PUERTO
-		memcpy(prueba.arguments,(char*)(&n),sizeof(int));
+		memcpy(prueba.arguments,(char*)(&prueba2),sizeof(mensajeLocal));
 
 		
 

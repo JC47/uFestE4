@@ -43,6 +43,8 @@ int main(int argc, char const *argv[])
 		if(prueba->requestId==requestIdPasado){
 			cout<<"El operation id es: "<<prueba->requestId<<endl;
 			nbd+=(*(int *) prueba->arguments);
+			int n_parrafo =(*(int *) prueba->arguments);
+			cout << n_parrafo << endl;
 			string s=to_string(nbd);
 			cout<<"modifico el saldo a --------------- "<<nbd<<" voy a enviar :  "<<s<<endl;
 				memcpy(respuesta.arguments,(char*)(&nbd),sizeof(nbd));
