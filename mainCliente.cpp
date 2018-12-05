@@ -12,18 +12,8 @@ int main(int argc, char const *argv[])
 	int entrada;
 	cout<<"Ingrese el monto a ingresar"<<endl;
 	cin>>entrada;
-	std::string ip("10.100.70.115"); //mi IP
-	std::string ip2("10.100.74.112"); //IP DEL SERVIDOR
-	
-	struct mensajeLocal{
-		int n;
-		char *párrafo;
-	};
-
-	char* p = "anita lava la tina";
-
-	mensajeLocal* prueba2 = (mensajeLocal*) malloc(sizeof(mensajeLocal));
-	prueba2->párrafo = p;
+	std::string ip("10.100.69.206"); //mi IP
+	std::string ip2("10.100.69.40"); //IP DEL SERVIDOR
 
 	mensaje prueba;
 	Solicitud cliente;
@@ -36,7 +26,12 @@ int main(int argc, char const *argv[])
 		prueba.requestId=entrada;
 		memcpy(prueba.IP,(char *)ip.c_str(),16);
 		prueba.puerto=7777; //MI PUERTO
-		memcpy(prueba.arguments,(char*)(&prueba2),sizeof(mensajeLocal));
+		prueba.n=32;
+		char* x = "Llega un momento en la vida en que una persona sabe perfectamente que, si no se lanza, si no deja de tener miedo a apostar y no sigue los dictámenes que su corazón ha forjado durante años, no lo hará nunca. Esas palabras, por supuesto, no las dijo Michael Ohayon en voz alta, pero exactamente así sonaron en su interior ante el farfulleo gruñón de Balilty, el jefe de la unidad de información, que no dejó de refunfuñar ni siquiera cuando Michael se inclinó sobre el cadáver. Se agachó para ver de cerca las fibras de seda que salían del pañuelo atado alrededor del cuello, debajo de esa cara convertida en una masa de sangre y huesos.\0";
+		for(int i = 0; i<strlen(x); i++){
+			prueba.arguments[i] = x[i]; 
+		}
+		//memcpy(prueba.arguments,p,sizeof(&p));
 
 		
 
